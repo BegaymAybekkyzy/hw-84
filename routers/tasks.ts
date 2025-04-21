@@ -66,7 +66,7 @@ taskRouter.patch("/:id",authorization, async (req, res, next) => {
             return;
         }
 
-        res.send(updatedTask);
+        res.send({message: "Task updated successfully."});
     } catch (error) {
         if (error instanceof Error.ValidationError || error instanceof Error.CastError) {
             res.status(400).send(error);
