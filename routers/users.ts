@@ -14,7 +14,7 @@ userRouter.post("/", async (req, res, next) => {
         await newUser.save();
         res.send(newUser);
     } catch (error) {
-        if (error instanceof Error.ValidationError) {
+        if (error instanceof Error.ValidationError || error instanceof Error.CastError) {
             res.status(400).send(error);
             return;
         }
